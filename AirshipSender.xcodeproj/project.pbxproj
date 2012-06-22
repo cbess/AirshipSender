@@ -17,6 +17,8 @@
 		1E6CB8A715950E4700DDCFC3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E6CB88715950E4700DDCFC3 /* Cocoa.framework */; };
 		1E6CB8AF15950E4700DDCFC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E6CB8AD15950E4700DDCFC3 /* InfoPlist.strings */; };
 		1E6CB8B215950E4700DDCFC3 /* AirshipSenderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6CB8B115950E4700DDCFC3 /* AirshipSenderTests.m */; };
+		1E6CB8C21595130900DDCFC3 /* ASMainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6CB8C11595130900DDCFC3 /* ASMainWindow.m */; };
+		1E6EE57F159518A700F94499 /* ASPayload.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EE57E159518A700F94499 /* ASPayload.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,20 +37,24 @@
 		1E6CB88A15950E4700DDCFC3 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		1E6CB88B15950E4700DDCFC3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		1E6CB88C15950E4700DDCFC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		1E6CB88F15950E4700DDCFC3 /* AirshipSender-Info.plist */ = {isa = PBXFileReference; path = "AirshipSender-Info.plist"; sourceTree = "<group>"; };
+		1E6CB88F15950E4700DDCFC3 /* AirshipSender-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirshipSender-Info.plist"; sourceTree = "<group>"; };
 		1E6CB89115950E4700DDCFC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1E6CB89315950E4700DDCFC3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1E6CB89515950E4700DDCFC3 /* AirshipSender-Prefix.pch */ = {isa = PBXFileReference; path = "AirshipSender-Prefix.pch"; sourceTree = "<group>"; };
+		1E6CB89515950E4700DDCFC3 /* AirshipSender-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirshipSender-Prefix.pch"; sourceTree = "<group>"; };
 		1E6CB89715950E4700DDCFC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		1E6CB89915950E4700DDCFC3 /* ASAppDelegate.h */ = {isa = PBXFileReference; path = ASAppDelegate.h; sourceTree = "<group>"; };
+		1E6CB89915950E4700DDCFC3 /* ASAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ASAppDelegate.h; sourceTree = "<group>"; };
 		1E6CB89A15950E4700DDCFC3 /* ASAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ASAppDelegate.m; sourceTree = "<group>"; };
 		1E6CB89D15950E4700DDCFC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		1E6CB8A415950E4700DDCFC3 /* AirshipSenderTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirshipSenderTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E6CB8A515950E4700DDCFC3 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		1E6CB8AC15950E4700DDCFC3 /* AirshipSenderTests-Info.plist */ = {isa = PBXFileReference; path = "AirshipSenderTests-Info.plist"; sourceTree = "<group>"; };
+		1E6CB8AC15950E4700DDCFC3 /* AirshipSenderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AirshipSenderTests-Info.plist"; sourceTree = "<group>"; };
 		1E6CB8AE15950E4700DDCFC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1E6CB8B015950E4700DDCFC3 /* AirshipSenderTests.h */ = {isa = PBXFileReference; path = AirshipSenderTests.h; sourceTree = "<group>"; };
+		1E6CB8B015950E4700DDCFC3 /* AirshipSenderTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AirshipSenderTests.h; sourceTree = "<group>"; };
 		1E6CB8B115950E4700DDCFC3 /* AirshipSenderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AirshipSenderTests.m; sourceTree = "<group>"; };
+		1E6CB8C01595130900DDCFC3 /* ASMainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMainWindow.h; sourceTree = "<group>"; };
+		1E6CB8C11595130900DDCFC3 /* ASMainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMainWindow.m; sourceTree = "<group>"; };
+		1E6EE57D159518A700F94499 /* ASPayload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASPayload.h; sourceTree = "<group>"; };
+		1E6EE57E159518A700F94499 /* ASPayload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASPayload.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +122,10 @@
 			children = (
 				1E6CB89915950E4700DDCFC3 /* ASAppDelegate.h */,
 				1E6CB89A15950E4700DDCFC3 /* ASAppDelegate.m */,
+				1E6CB8C01595130900DDCFC3 /* ASMainWindow.h */,
+				1E6CB8C11595130900DDCFC3 /* ASMainWindow.m */,
+				1E6EE57D159518A700F94499 /* ASPayload.h */,
+				1E6EE57E159518A700F94499 /* ASPayload.m */,
 				1E6CB89C15950E4700DDCFC3 /* MainMenu.xib */,
 				1E6CB88E15950E4700DDCFC3 /* Supporting Files */,
 			);
@@ -200,7 +210,7 @@
 			attributes = {
 				CLASSPREFIX = AS;
 				LastUpgradeCheck = 0430;
-				ORGANIZATIONNAME = "Bottle Rocket Apps";
+				ORGANIZATIONNAME = "C. Bess";
 			};
 			buildConfigurationList = 1E6CB87D15950E4700DDCFC3 /* Build configuration list for PBXProject "AirshipSender" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -264,6 +274,8 @@
 			files = (
 				1E6CB89415950E4700DDCFC3 /* main.m in Sources */,
 				1E6CB89B15950E4700DDCFC3 /* ASAppDelegate.m in Sources */,
+				1E6CB8C21595130900DDCFC3 /* ASMainWindow.m in Sources */,
+				1E6EE57F159518A700F94499 /* ASPayload.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +449,7 @@
 				1E6CB8B715950E4700DDCFC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E6CB8B815950E4700DDCFC3 /* Build configuration list for PBXNativeTarget "AirshipSenderTests" */ = {
 			isa = XCConfigurationList;
@@ -445,6 +458,7 @@
 				1E6CB8BA15950E4700DDCFC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

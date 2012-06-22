@@ -1,5 +1,5 @@
 //
-//  ASAppDelegate.h
+//  ASMainWindow.h
 //  AirshipSender
 //
 //  Created by Christopher Bess on 6/22/12.
@@ -8,8 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface ASAppDelegate : NSObject <NSApplicationDelegate>
-
-@property (assign) IBOutlet NSWindow *window;
+@interface ASMainWindow : NSWindow
 
 @end
