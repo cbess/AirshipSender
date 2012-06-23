@@ -17,6 +17,7 @@
 @property (weak) IBOutlet NSTextField *soundTextField;
 @property (strong) IBOutlet NSTextView *payloadTextView;
 @property (weak) IBOutlet NSView *formFieldsView;
+@property (weak) IBOutlet NSProgressIndicator *progressIndicator;
 @property (nonatomic, strong) ASPayload *payload;
 @property (nonatomic, assign) BOOL formattedString;
 @property (nonatomic, assign) BOOL isBroadcast;
@@ -30,6 +31,7 @@
 @synthesize soundTextField;
 @synthesize payloadTextView;
 @synthesize formFieldsView;
+@synthesize progressIndicator;
 @synthesize payload;
 @synthesize formattedString;
 @synthesize isBroadcast;
@@ -82,6 +84,36 @@
 
 - (IBAction)sendItClicked:(id)sender 
 {
+    NSButton *button = sender;
+    [button setEnabled:NO];
+    [self.progressIndicator startAnimation:nil];
+    
+    // send request
+    [self.payload sendPayloadWithCompletionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+        // check response
+        if (error)
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSAlert *alert = [NSAlert alertWithError:error];
+                [alert runModal];
+            });
+        }
+        
+        // inform user
+        NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Response", nil) 
+                                             defaultButton:NSLocalizedString(@"OK", nil) 
+                                           alternateButton:nil 
+                                               otherButton:nil 
+                                 informativeTextWithFormat:dataString];
+            [alert runModal];
+        });
+        
+        // update UI
+        [button setEnabled:YES];
+        [self.progressIndicator stopAnimation:nil];
+    }];
 }
 
 #pragma mark - NSTextFieldDelegate

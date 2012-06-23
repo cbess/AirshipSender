@@ -8,12 +8,28 @@
 
 #import "ASPayload.h"
 
+static NSString * const kSendTypeDeviceURLString = @"https://go.urbanairship.com/api/push/";
+static NSString * const kSendTypeBroadcastURLString = @"https://go.urbanairship.com/api/push/broadcast/";
+
 @implementation ASPayload
 @synthesize deviceTokens = _deviceTokens;
 @synthesize alert;
 @synthesize alias = _alias;
 @synthesize badge;
 @synthesize sound;
+@synthesize sendType = _sendType;
+
+- (id)init
+{
+    self = [super init];
+    if (self) 
+    {
+        self.sendType = ASPayloadSendTypeDevice;
+    }
+    return self;
+}
+
+#pragma mark - Properties
 
 - (NSMutableArray *)deviceTokens
 {
@@ -31,6 +47,8 @@
     return _alias;
 }
 
+#pragma mark - JSON
+
 - (NSDictionary *)JSONObject
 {
     NSMutableDictionary *info = [NSMutableDictionary dictionaryWithCapacity:5];
@@ -38,12 +56,15 @@
     
     [info setObject:apsInfo forKey:@"aps"];
     
-    // root
-    if (self.deviceTokens.count)
-        [info setObject:self.deviceTokens forKey:@"device_tokens"];
-    
-    if (self.alias.count)
-        [info setObject:self.alias forKey:@"aliases"];
+    if (self.sendType == ASPayloadSendTypeDevice)
+    {
+        // root
+        if (self.deviceTokens.count)
+            [info setObject:self.deviceTokens forKey:@"device_tokens"];
+        
+        if (self.alias.count)
+            [info setObject:self.alias forKey:@"aliases"];
+    }
     
     // aps
     if (self.badge.intValue)
@@ -86,6 +107,8 @@
     return jsonString;
 }
 
+#pragma mark - Misc
+
 - (void)reset
 {
     [self.deviceTokens removeAllObjects];
@@ -93,5 +116,32 @@
     self.sound = nil;
     self.alert = nil;
     self.badge = nil;
+}
+
+#pragma mark - Network
+
+- (void)sendPayloadWithCompletionHandler:(ASPayloadSendCompletionBlock)handler
+{
+    [self sendPayloadForType:self.sendType completionHandler:handler];
+}
+
+- (void)sendPayloadForType:(ASPayloadSendType)sendType completionHandler:(ASPayloadSendCompletionBlock)handler
+{
+    NSString *sendURLString = (sendType == ASPayloadSendTypeDevice ? kSendTypeDeviceURLString : kSendTypeBroadcastURLString);
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:sendURLString]];
+    
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+    
+    NSString *jsonString = self.JSONString;
+    
+    [request setValue:[NSString stringWithFormat:@"%d", jsonString.length] forHTTPHeaderField:@"Content-length"];
+    
+    [request setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    // send it!
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:handler];
 }
 @end

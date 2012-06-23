@@ -19,6 +19,7 @@
 			<string>NSButtonCell</string>
 			<string>NSButton</string>
 			<string>NSScrollView</string>
+			<string>NSProgressIndicator</string>
 			<string>NSCustomObject</string>
 			<string>NSSegmentedCell</string>
 			<string>NSView</string>
@@ -1702,7 +1703,7 @@
 											<string key="NSFrame">{{324, 1}, {15, 98}}</string>
 											<reference key="NSSuperview" ref="183606922"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="656108063"/>
+											<reference key="NSNextKeyView" ref="464796131"/>
 											<string key="NSReuseIdentifierKey">_NS:84</string>
 											<reference key="NSTarget" ref="183606922"/>
 											<string key="NSAction">_doScroller:</string>
@@ -1831,6 +1832,18 @@
 								</array>
 								<int key="NSSegmentStyle">1</int>
 							</object>
+						</object>
+						<object class="NSProgressIndicator" id="464796131">
+							<reference key="NSNextResponder" ref="439893737"/>
+							<int key="NSvFlags">1313</int>
+							<object class="NSPSMatrix" key="NSDrawMatrix"/>
+							<string key="NSFrame">{{360, 21}, {16, 16}}</string>
+							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView" ref="656108063"/>
+							<string key="NSReuseIdentifierKey">_NS:926</string>
+							<int key="NSpiFlags">20746</int>
+							<double key="NSMaxValue">100</double>
 						</object>
 					</array>
 					<string key="NSFrameSize">{480, 434}</string>
@@ -2565,6 +2578,14 @@
 					<int key="connectionID">745</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">progressIndicator</string>
+						<reference key="source" ref="972006081"/>
+						<reference key="destination" ref="464796131"/>
+					</object>
+					<int key="connectionID">747</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">addFontTrait:</string>
 						<reference key="source" ref="755631768"/>
@@ -3180,6 +3201,7 @@
 							<reference ref="27684044"/>
 							<reference ref="632535255"/>
 							<reference ref="656108063"/>
+							<reference ref="464796131"/>
 						</array>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -3889,6 +3911,11 @@
 						<reference key="object" ref="669381458"/>
 						<reference key="parent" ref="826005309"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">746</int>
+						<reference key="object" ref="464796131"/>
+						<reference key="parent" ref="439893737"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -4074,6 +4101,7 @@
 				<string key="74.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="741.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="742.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="746.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="75.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="77.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="78.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4087,7 +4115,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">745</int>
+			<int key="maxID">747</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4120,6 +4148,7 @@
 						<string key="deviceTokenTextField">NSTextField</string>
 						<string key="formFieldsView">NSView</string>
 						<string key="payloadTextView">NSTextView</string>
+						<string key="progressIndicator">NSProgressIndicator</string>
 						<string key="soundTextField">NSTextField</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -4146,6 +4175,10 @@
 						<object class="IBToOneOutletInfo" key="payloadTextView">
 							<string key="name">payloadTextView</string>
 							<string key="candidateClassName">NSTextView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="progressIndicator">
+							<string key="name">progressIndicator</string>
+							<string key="candidateClassName">NSProgressIndicator</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="soundTextField">
 							<string key="name">soundTextField</string>
