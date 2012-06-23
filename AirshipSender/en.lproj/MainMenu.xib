@@ -1586,26 +1586,7 @@
 												<object class="NSTextView" id="134564214">
 													<reference key="NSNextResponder" ref="913395457"/>
 													<int key="NSvFlags">2322</int>
-													<set class="NSMutableSet" key="NSDragTypes">
-														<string>Apple HTML pasteboard type</string>
-														<string>Apple PDF pasteboard type</string>
-														<string>Apple PICT pasteboard type</string>
-														<string>Apple PNG pasteboard type</string>
-														<string>Apple URL pasteboard type</string>
-														<string>CorePasteboardFlavorType 0x6D6F6F76</string>
-														<string>NSColor pasteboard type</string>
-														<string>NSFilenamesPboardType</string>
-														<string>NSStringPboardType</string>
-														<string>NeXT Encapsulated PostScript v1.2 pasteboard type</string>
-														<string>NeXT RTFD pasteboard type</string>
-														<string>NeXT Rich Text Format v1.0 pasteboard type</string>
-														<string>NeXT TIFF v4.0 pasteboard type</string>
-														<string>NeXT font pasteboard type</string>
-														<string>NeXT ruler pasteboard type</string>
-														<string>WebURLsWithTitlesPboardType</string>
-														<string>public.url</string>
-													</set>
-													<string key="NSFrameSize">{338, 98}</string>
+													<string key="NSFrameSize">{336, 96}</string>
 													<reference key="NSSuperview" ref="913395457"/>
 													<reference key="NSWindow"/>
 													<reference key="NSNextKeyView" ref="98987582"/>
@@ -1625,11 +1606,11 @@
 															<nil key="NSDelegate"/>
 														</object>
 														<reference key="NSTextView" ref="134564214"/>
-														<double key="NSWidth">338</double>
+														<double key="NSWidth">336</double>
 														<int key="NSTCFlags">1</int>
 													</object>
 													<object class="NSTextViewSharedData" key="NSSharedData">
-														<int key="NSFlags">11523</int>
+														<int key="NSFlags">11521</int>
 														<int key="NSTextCheckingTypes">0</int>
 														<nil key="NSMarkedAttributes"/>
 														<reference key="NSBackgroundColor" ref="406826768"/>
@@ -1665,11 +1646,11 @@
 													</object>
 													<int key="NSTVFlags">6</int>
 													<string key="NSMaxSize">{463, 10000000}</string>
-													<string key="NSMinize">{223, 98}</string>
+													<string key="NSMinize">{223, 96}</string>
 													<nil key="NSDelegate"/>
 												</object>
 											</array>
-											<string key="NSFrame">{{1, 1}, {338, 98}}</string>
+											<string key="NSFrame">{{2, 2}, {336, 96}}</string>
 											<reference key="NSSuperview" ref="183606922"/>
 											<reference key="NSWindow"/>
 											<reference key="NSNextKeyView" ref="134564214"/>
@@ -1700,10 +1681,10 @@
 										<object class="NSScroller" id="98987582">
 											<reference key="NSNextResponder" ref="183606922"/>
 											<int key="NSvFlags">256</int>
-											<string key="NSFrame">{{324, 1}, {15, 98}}</string>
+											<string key="NSFrame">{{323, 2}, {15, 96}}</string>
 											<reference key="NSSuperview" ref="183606922"/>
 											<reference key="NSWindow"/>
-											<reference key="NSNextKeyView" ref="464796131"/>
+											<reference key="NSNextKeyView" ref="573877227"/>
 											<string key="NSReuseIdentifierKey">_NS:84</string>
 											<reference key="NSTarget" ref="183606922"/>
 											<string key="NSAction">_doScroller:</string>
@@ -1730,7 +1711,7 @@
 									<reference key="NSWindow"/>
 									<reference key="NSNextKeyView" ref="883598069"/>
 									<string key="NSReuseIdentifierKey">_NS:9</string>
-									<int key="NSsFlags">133138</int>
+									<int key="NSsFlags">133139</int>
 									<reference key="NSVScroller" ref="98987582"/>
 									<reference key="NSHScroller" ref="883598069"/>
 									<reference key="NSContentView" ref="913395457"/>
@@ -1833,7 +1814,7 @@
 								<int key="NSSegmentStyle">1</int>
 							</object>
 						</object>
-						<object class="NSProgressIndicator" id="464796131">
+						<object class="NSProgressIndicator" id="573877227">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">1313</int>
 							<object class="NSPSMatrix" key="NSDrawMatrix"/>
@@ -2581,7 +2562,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">progressIndicator</string>
 						<reference key="source" ref="972006081"/>
-						<reference key="destination" ref="464796131"/>
+						<reference key="destination" ref="573877227"/>
 					</object>
 					<int key="connectionID">747</int>
 				</object>
@@ -3201,7 +3182,7 @@
 							<reference ref="27684044"/>
 							<reference ref="632535255"/>
 							<reference ref="656108063"/>
-							<reference ref="464796131"/>
+							<reference ref="573877227"/>
 						</array>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -3913,7 +3894,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">746</int>
-						<reference key="object" ref="464796131"/>
+						<reference key="object" ref="573877227"/>
 						<reference key="parent" ref="439893737"/>
 					</object>
 				</array>

@@ -72,6 +72,8 @@
 - (IBAction)sendTypeChanged:(id)sender 
 {
     self.isBroadcast = !self.isBroadcast;
+    self.payload.sendType = (self.isBroadcast ? ASPayloadSendTypeBroadcast : ASPayloadSendTypeDevice);
+    
     [self buildPayloadAndUpdateUI];
 }
 
