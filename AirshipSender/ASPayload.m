@@ -8,8 +8,8 @@
 
 #import "ASPayload.h"
 
-static NSString * const kSendTypeDeviceURLString = @"https://go.urbanairship.com/api/push/";
-static NSString * const kSendTypeBroadcastURLString = @"https://go.urbanairship.com/api/push/broadcast/";
+static NSString * const kSendTypeDeviceURLString = @"go.urbanairship.com/api/push/";
+static NSString * const kSendTypeBroadcastURLString = @"go.urbanairship.com/api/push/broadcast/";
 
 @implementation ASPayload
 @synthesize deviceTokens = _deviceTokens;
@@ -18,6 +18,8 @@ static NSString * const kSendTypeBroadcastURLString = @"https://go.urbanairship.
 @synthesize badge;
 @synthesize sound;
 @synthesize sendType = _sendType;
+@synthesize applicationKey;
+@synthesize masterSecret;
 
 - (id)init
 {
@@ -128,18 +130,23 @@ static NSString * const kSendTypeBroadcastURLString = @"https://go.urbanairship.
 - (void)sendPayloadForType:(ASPayloadSendType)sendType completionHandler:(ASPayloadSendCompletionBlock)handler
 {
     NSString *sendURLString = (sendType == ASPayloadSendTypeDevice ? kSendTypeDeviceURLString : kSendTypeBroadcastURLString);
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:sendURLString]];
+    NSString *jsonString = self.JSONString;
+    if (!self.applicationKey.length || !self.masterSecret.length)
+    {
+        NSError *error = [NSError errorWithDomain:@"com.airshipsender" code:-1 userInfo:[NSDictionary dictionaryWithObject:@"Check authorization." forKey:NSLocalizedDescriptionKey]];
+        
+        handler(nil, nil, error);
+        return;
+    }
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://%@:%@@%@", self.applicationKey, self.masterSecret, sendURLString]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
-    
-    NSString *jsonString = self.JSONString;
-    
-    [request setValue:[NSString stringWithFormat:@"%d", jsonString.length] forHTTPHeaderField:@"Content-length"];
-    
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%d", jsonString.length] forHTTPHeaderField:@"Content-Length"];
     [request setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
     
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    NSOperationQueue *queue = [NSOperationQueue new];
     
     // send it!
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:handler];

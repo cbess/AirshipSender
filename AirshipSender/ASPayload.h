@@ -22,6 +22,8 @@ typedef void(^ASPayloadSendCompletionBlock)(NSURLResponse *response, NSData *dat
 @property (nonatomic, copy) NSString *alert;
 @property (nonatomic, copy) NSString *sound;
 @property (nonatomic, assign) ASPayloadSendType sendType;
+@property (nonatomic, copy) NSString *applicationKey;
+@property (nonatomic, copy) NSString *masterSecret;
 
 - (NSString *)JSONFormattedString;
 - (NSString *)JSONString;

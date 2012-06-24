@@ -18,6 +18,8 @@
 @property (strong) IBOutlet NSTextView *payloadTextView;
 @property (weak) IBOutlet NSView *formFieldsView;
 @property (weak) IBOutlet NSProgressIndicator *progressIndicator;
+@property (weak) IBOutlet NSTextField *appKeyTextField;
+@property (weak) IBOutlet NSTextField *masterSecretTextField;
 @property (nonatomic, strong) ASPayload *payload;
 @property (nonatomic, assign) BOOL formattedString;
 @property (nonatomic, assign) BOOL isBroadcast;
@@ -32,6 +34,8 @@
 @synthesize payloadTextView;
 @synthesize formFieldsView;
 @synthesize progressIndicator;
+@synthesize appKeyTextField;
+@synthesize masterSecretTextField;
 @synthesize payload;
 @synthesize formattedString;
 @synthesize isBroadcast;
@@ -101,16 +105,19 @@
             });
         }
         
-        // inform user
-        NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Response", nil) 
-                                             defaultButton:NSLocalizedString(@"OK", nil) 
-                                           alternateButton:nil 
-                                               otherButton:nil 
-                                 informativeTextWithFormat:dataString];
-            [alert runModal];
-        });
+        if (data)
+        {
+            // inform user
+            NSString *dataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Response", nil) 
+                                                 defaultButton:NSLocalizedString(@"OK", nil) 
+                                               alternateButton:nil 
+                                                   otherButton:nil 
+                                     informativeTextWithFormat:dataString];
+                [alert runModal];
+            });
+        }
         
         // update UI
         [button setEnabled:YES];
